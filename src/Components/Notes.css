@@ -1,0 +1,117 @@
+.notes-container {
+  width: 310px;
+  margin: auto;
+  background: #f8f8f8;
+  border-radius: 20px;
+  padding: 10px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notes-search {
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.icon-notes {
+  height: 30px;
+  width: 30px;
+}
+
+.notes-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: sticky;
+}
+
+.new-note-btn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.notes-list .note-item {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+.note-item h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.note-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.empty {
+  text-align: center;
+  color: #aaa;
+}
+
+/* Editor */
+.notes-editor {
+  width: 310px;
+  margin: auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-title {
+  font-size: 20px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.note-body {
+  flex: 1;
+  min-height: 300px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editor-actions button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.editor-actions .delete {
+  background: #ff4a4a;
+  color: #fff;
+}

@@ -1,0 +1,68 @@
+.weather-container {
+  background-image: linear-gradient(
+    rgb(24, 24, 104),
+    rgb(25, 29, 86),
+    rgb(0, 0, 21)
+  );
+  width: 310px;
+  height: 150px;
+  margin: auto;
+  border-radius: 30px;
+  margin-top: 30px;
+}
+
+.temp-data {
+  display: flex;
+}
+
+.temp-high-low {
+  color: white;
+  width: 60%;
+  height: 100px;
+  margin: 10px;
+}
+
+.temp-high-low p {
+  margin: 0;
+  font-weight: 500;
+  overflow: hidden;
+  height: 25px;
+}
+
+.temp-high-low h5 {
+  font-size: 30pt;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.description-icon {
+  width: 100%;
+  height: 100px;
+}
+
+.description-icon p {
+  margin-top: -15px;
+  color: white;
+}
+
+.min-max {
+  display: flex;
+  justify-content: center;
+}
+
+.min-max small {
+  font-size: 10px;
+  font-weight: bolder;
+  margin: 5px;
+}
+
+img {
+  margin-top: 15px;
+  height: 70px;
+  width: 70px;
+}
+
+.desc {
+  margin-top: 15px;
+  font-size: small;
+}
