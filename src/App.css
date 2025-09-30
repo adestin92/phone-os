@@ -19,7 +19,7 @@
   width: 350px;
   border-radius: 40px;
   position: relative;
-  background-image: url("../public/phone_wallpaper/blue-pink.jpg");
+  background-image: url("/phone_wallpaper/blue-pink.jpg");
   background-size: cover;
 }
 

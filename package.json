@@ -12,6 +12,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "math.js": "^1.1.46",
+    "mathjs": "^14.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

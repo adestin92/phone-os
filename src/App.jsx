@@ -156,7 +156,7 @@ function App() {
             className="app"
           ></img>
           <img
-            src="./app_icon/calculator.svg"
+            src="./app_icon/Calculator.svg"
             onClick={() => handleOpenApp("calculator")}
             alt="icon"
             className="app"
@@ -186,7 +186,7 @@ function App() {
             className="app"
           ></img>
           <img
-            src="./app_icon/reminders.svg"
+            src="./app_icon/Reminders.svg"
             onClick={() => handleOpenApp("reminders")}
             alt="icon"
             className="app"
