@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import WeatherComponent from "./components/Weather.js";
-import SettingsComponent from "./components/Settings.js";
-import StockMarketComponent from "./components/StockMarket.js";
-import CalculatorComponent from "./components/Calculator.js";
-import ClockComponent from "./components/Clock.js";
-import NotesComponent from "./components/Notes.js";
+
+import WeatherComponent from "./Components/Weather.jsx";
+import SettingsComponent from "./Components/Settings.jsx";
+import CalculatorComponent from "./Components/Calculator.jsx";
+import ClockComponent from "./Components/Clock.jsx";
+import StockMarketComponent from "./Components/StockMarket.jsx";
+import NotesComponent from "./Components/Notes.jsx";
+
+
 
 /** Get the current date */
 const date = new Date();
