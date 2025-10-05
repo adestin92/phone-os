@@ -1,0 +1,136 @@
+/* Container */
+.settings-container {
+  width: 320px;
+  margin: 16px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+  padding-bottom: 40px;
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+.settings-icon {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+}
+
+
+/* Profile card */
+.settings-section.profile-section {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+  margin-bottom: 14px;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.profile-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#dfe9f3,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-right:12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.profile-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+.profile-sub {
+  font-size: 12px;
+  color: #666;
+  margin-top:4px;
+}
+.profile-right {
+  color: #9e9e9e;
+  font-size: 20px;
+}
+
+/* Group wrapper (rounded sections like iOS) */
+.settings-group {
+  background: #fff;
+  border-radius: 14px;
+  padding: 6px 0;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+/* Row */
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px;
+  cursor: pointer;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.settings-row:first-child { border-top: 0; }
+
+/* Left side of a row */
+.row-left {
+  display:flex;
+  align-items:center;
+  
+}
+.row-icon {
+  display: flex;
+  margin-right: 12px;
+
+}
+.row-texts { display:flex; flex-direction:column; }
+.row-title { font-size: 15px; font-weight: 500; }
+.row-subtitle { font-size: 12px; color: #777; margin-top: 4px; }
+
+/* Right side - chevron/value */
+.row-right { display:flex; align-items:center; gap:8px; color:#9e9e9e; }
+.chev { font-size: 20px; transform: translateY(1px); color: #bdbdbd; }
+
+/* small value text */
+.value-text { font-size: 13px; color: #666; padding-right: 6px; }
+
+/* Toggle (switch) */
+.switch {
+  width: 46px;
+  height: 28px;
+  border-radius: 20px;
+  background: #e6e6e6;
+  display:flex;
+  align-items:center;
+  padding: 3px;
+  box-sizing: border-box;
+  transition: background 0.15s ease;
+}
+.switch .knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transform: translateX(0);
+  transition: transform 0.15s ease;
+}
+.switch.on {
+  background: #34c759; /* iOS green */
+  justify-content: flex-end;
+}
+.switch.off { justify-content: flex-start; }
+
+/* Footer */
+.settings-footer {
+  margin-top: 8px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+}

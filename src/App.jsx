@@ -20,8 +20,8 @@ const appThemes = {
   clock: "#000000ff", // light pink-ish
   instagram: "#fdf1e0", // light gradient-like
   calculator: "#000000", // iPhone black calculator theme
-  gallery: "#f0f0f0", // light gray
-  settings: "#ffffff", // white
+  gallery: "#ddddddff", // light gray
+  settings: "#f4f4f4ff", // white
   stock_market: "#f5f5f5", // light gray
   notes: "#f8f8f8", // light yellow
 };

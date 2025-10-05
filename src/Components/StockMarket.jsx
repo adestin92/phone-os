@@ -24,7 +24,7 @@ const StockMarket = () => {
         <h3 style={{ color: "gray" }}>September 25</h3>
         <div className="search-wrapper">
           <img src="./search.png" alt="search" className="search-icon" />
-          <input type="text" placeholder="Search" className="stock-search" />
+          <input type="text" placeholder="Search" className="search-bar" />
         </div>
       </div>
 

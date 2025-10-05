@@ -58,13 +58,14 @@ const NotesComponent = () => {
   if (activeNote === null) {
     return (
       <div className="notes-container">
-        <div className="notes-header">
+        <div className="search-wrapper">
+          <img src="./search.png" alt="search" className="search-icon" />
           <input
             type="text"
             placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="notes-search"
+            className="search-bar"
           />
         </div>
 
