@@ -10,8 +10,8 @@
 }
 
 .settings-icon {
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   margin: auto;
 }
 
@@ -33,17 +33,18 @@
   align-items: center;
   text-align: left;
 }
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+
+}
 .profile-avatar {
-  width: 58px;
-  height: 58px;
-  border-radius: 14px;
-  background: linear-gradient(135deg,#dfe9f3,#ffffff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+ 
+  
   font-size:28px;
   margin-right:12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+
 }
 .profile-name {
   font-weight: 600;
