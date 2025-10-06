@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Notes.css";
+import SearchBar from "./SearchBar";
 
 const NotesComponent = () => {
   const [notes, setNotes] = useState(() => {
@@ -59,14 +60,11 @@ const NotesComponent = () => {
     return (
       <div className="notes-container">
         <div className="search-wrapper">
-          <img src="./search.png" alt="search" className="search-icon" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="search-bar"
-          />
+          <SearchBar
+          placeholder="Search notes..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         </div>
 
         <div className="notes-list">

@@ -35,31 +35,7 @@
   overflow-x: hidden;
 }
 
-.search-wrapper {
-  position: relative;
-  width: 100%;
-}
 
-.search-bar {
-  width: 80%;
-  padding: 8px 30px; /* space for the icon on the left */
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  background-color: #ccc;
-}
-
-.search-icon {
-  position: absolute;
-  left: 10px;
-  top: 15%;
-  transform: translateY(-50%);
-  width: 15px;
-  height: 15px;
-  pointer-events: none; /* allows clicking the input without obstruction */
-}
 
 .stock-header h3 {
   margin: 0;

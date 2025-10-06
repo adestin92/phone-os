@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 import WeatherComponent from "./Components/Weather.jsx";
@@ -7,6 +9,7 @@ import CalculatorComponent from "./Components/Calculator.jsx";
 import ClockComponent from "./Components/Clock.jsx";
 import StockMarketComponent from "./Components/StockMarket.jsx";
 import NotesComponent from "./Components/Notes.jsx";
+import RemindersApp from "./Components/Reminders.jsx";
 
 
 
@@ -22,8 +25,9 @@ const appThemes = {
   calculator: "#000000", // iPhone black calculator theme
   gallery: "#ddddddff", // light gray
   settings: "#f4f4f4ff", // white
-  stock_market: "#f5f5f5", // light gray
+  stock_market: "#f4ffffff", // light gray
   notes: "#f8f8f8", // light yellow
+  reminders: "#f4f4f4ff",
 };
 
 function App() {
@@ -71,7 +75,7 @@ function App() {
       case "notes":
         return <NotesComponent />;
       case "reminders":
-        return <div>Reminders App Content</div>;
+        return <RemindersApp/>
 
       default:
         return null;
@@ -208,6 +212,8 @@ function App() {
           <img src="./app_icon/music.png" alt="icon" className="dock-app"></img>
         </div>
       </section>
+    
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

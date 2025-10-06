@@ -1,5 +1,6 @@
-import React from "react";
+import {useState} from "react";
 import "./StockMarket.css";
+import SearchBar from "./Searchbar";
 
 const mockStocks = [
   { symbol: "AAPL", name: "Apple Inc.", price: 175.64, change: 1.25 },
@@ -17,19 +18,30 @@ const mockStocks = [
 ];
 
 const StockMarket = () => {
+  const [search, setSearch] = useState("");
+
+  const filteredStocks = mockStocks.filter(
+    (stock) =>
+      stock.symbol.toLowerCase().includes(search.toLowerCase()) ||
+      stock.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="stock-container">
       <div className="stock-header">
         <h3>Stocks</h3>
         <h3 style={{ color: "gray" }}>September 25</h3>
-        <div className="search-wrapper">
-          <img src="./search.png" alt="search" className="search-icon" />
-          <input type="text" placeholder="Search" className="search-bar" />
-        </div>
+
+  
+        <SearchBar
+          placeholder="Search Stocks..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
 
       <div className="stock-list">
-        {mockStocks.map((stock) => {
+        {filteredStocks.map((stock) => {
           const isPositive = stock.change >= 0;
           return (
             <div key={stock.symbol} className="stock-row">
