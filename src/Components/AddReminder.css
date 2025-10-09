@@ -1,11 +1,100 @@
 .add-reminder-screen {
-  padding: 25px;
+  padding: 15px;
   max-width: 500px;
-  margin: 40px auto;
-  background: white;
+  height: 500px;
+  background-color: transparent;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+
+.ios-calendar .react-datepicker {
+  border: none;
+  background: white;
+  
+  border-radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+}
+
+
+
+.ios-calendar .react-datepicker__header {
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.react-datepicker__day--outside-month {
+  visibility: hidden;
+}
+
+.ios-calendar .react-datepicker__current-month {
+  color: #111;
+  font-weight: 600;
+}
+
+.ios-calendar .react-datepicker__day--selected {
+  background-color: #007aff;
+  color: white;
+  border-radius: 50%;
+}
+
+.ios-calendar .react-datepicker__day:hover {
+  background-color: rgba(0, 122, 255, 0.15);
+  border-radius: 50%;
+}
+
+/* iOS-style Time Picker */
+.ios-timepicker {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+  width: 220px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+}
+
+.time-scroll {
+  display: flex;
+  gap: 10px;
+}
+
+.time-col {
+  height: 150px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  text-align: center;
+  flex: 1;
+}
+
+.time-col::-webkit-scrollbar {
+  display: none;
+}
+
+.time-col div {
+  padding: 6px 0;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.time-col div:hover {
+  background: rgba(0, 122, 255, 0.1);
+  border-radius: 8px;
+  color: #007aff;
+}
+
+.time-col.ampm {
+  width: 60px;
+}
+
+.time-col.ampm div {
+  font-weight: 600;
+}
+
 
 h2 {
   text-align: center;
@@ -16,6 +105,46 @@ h2 {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.date-and-time {
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.dt-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dt-arrow {
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+.picker-dropdown {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 45px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 50;
+}
+
+/* form-row layout handled by parent; reserved for future use */
+
+.form-group input {
+  border-bottom: 1px solid #eeeeee;
 }
 
 label {
@@ -27,8 +156,7 @@ label {
 input,
 textarea {
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  border: none;
   outline: none;
   font-size: 14px;
   transition: 0.2s;
@@ -53,9 +181,6 @@ textarea {
 
 .cancel-btn,
 .save-btn {
-  flex: 1;
-  margin: 0 5px;
-  padding: 10px;
   border: none;
   border-radius: 10px;
   font-weight: 600;
@@ -64,14 +189,27 @@ textarea {
 }
 
 .cancel-btn {
-  background: #e0e0e0;
+  background: transparent;
+  color: #005fcc;
+  
+}
+
+.reminders-button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .save-btn {
-  background: #007aff;
-  color: white;
+  background: transparent;
+  color: #005fcc;
 }
 
 .save-btn:hover {
-  background: #005fcc;
+  color: #2a76ce;
 }
+
+.cancel-btn:hover {
+  color: #2a76ce;
+}
+
+

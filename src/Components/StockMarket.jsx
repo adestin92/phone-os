@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import "./StockMarket.css";
 import SearchBar from "./Searchbar";
 
@@ -23,7 +23,7 @@ const StockMarket = () => {
   const filteredStocks = mockStocks.filter(
     (stock) =>
       stock.symbol.toLowerCase().includes(search.toLowerCase()) ||
-      stock.name.toLowerCase().includes(search.toLowerCase())
+      stock.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -32,7 +32,6 @@ const StockMarket = () => {
         <h3>Stocks</h3>
         <h3 style={{ color: "gray" }}>September 25</h3>
 
-  
         <SearchBar
           placeholder="Search Stocks..."
           value={search}

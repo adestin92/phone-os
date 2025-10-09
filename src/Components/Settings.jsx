@@ -17,14 +17,12 @@ const Row = ({ icon, title, subtitle, right, onClick }) => (
   </div>
 );
 
-
-
 const SettingsComponent = () => {
   // demo profile data
   const profile = {
     name: "John Deer",
     subtitle: "Apple ID, iCloud, & more",
-    avatar: <img src="./settings_icon/man.png" className="profile-icon"/>,
+    avatar: <img src="./settings_icon/man.png" className="profile-icon" />,
   };
 
   return (
@@ -44,29 +42,87 @@ const SettingsComponent = () => {
       {/* Section: Connections */}
       <div className="settings-group">
         <Row
-          icon={<img src="./settings_icon/wifi.png" className="settings-icon"/>}
+          icon={
+            <img src="./settings_icon/wifi.png" className="settings-icon" />
+          }
           title="Wi-Fi"
         />
-        <Row icon={<img src="./settings_icon/bluetooth_icon.png" className="settings-icon"/>} title="Bluetooth" right={<div className="value-text">On</div>} />
+        <Row
+          icon={
+            <img
+              src="./settings_icon/bluetooth_icon.png"
+              className="settings-icon"
+            />
+          }
+          title="Bluetooth"
+          right={<div className="value-text">On</div>}
+        />
       </div>
 
       {/* Section: General */}
       <div className="settings-group">
-        <Row icon={<img src="./settings_icon/settings.png" className="settings-icon"/>} title="General" />
-        <Row icon={<img src="./settings_icon/brightness.png" className="settings-icon"/>} title="Display & Brightness" />
-        <Row icon={<img src="./settings_icon/wallpaper.png" className="settings-icon"/>} title="Wallpaper" />
+        <Row
+          icon={
+            <img src="./settings_icon/settings.png" className="settings-icon" />
+          }
+          title="General"
+        />
+        <Row
+          icon={
+            <img
+              src="./settings_icon/brightness.png"
+              className="settings-icon"
+            />
+          }
+          title="Display & Brightness"
+        />
+        <Row
+          icon={
+            <img
+              src="./settings_icon/wallpaper.png"
+              className="settings-icon"
+            />
+          }
+          title="Wallpaper"
+        />
       </div>
 
-        {/* Section: Notifications / Sounds */}
+      {/* Section: Notifications / Sounds */}
       <div className="settings-group">
-        <Row icon={<img src="./settings_icon/notification.png" className="settings-icon"/>} title="Notifications" />
-        <Row icon={<img src="./settings_icon/volume.png" className="settings-icon"/>} title="Sounds & Haptics" />
-        <Row icon={<img src="./settings_icon/hourglass.png" className="settings-icon"/>} title="Screen Time" />
+        <Row
+          icon={
+            <img
+              src="./settings_icon/notification.png"
+              className="settings-icon"
+            />
+          }
+          title="Notifications"
+        />
+        <Row
+          icon={
+            <img src="./settings_icon/volume.png" className="settings-icon" />
+          }
+          title="Sounds & Haptics"
+        />
+        <Row
+          icon={
+            <img
+              src="./settings_icon/hourglass.png"
+              className="settings-icon"
+            />
+          }
+          title="Screen Time"
+        />
       </div>
 
       {/* Section: Privacy */}
       <div className="settings-group">
-        <Row icon={<img src="./settings_icon/hand.png" className="settings-icon"/>} title="Privacy & Security"/>
+        <Row
+          icon={
+            <img src="./settings_icon/hand.png" className="settings-icon" />
+          }
+          title="Privacy & Security"
+        />
       </div>
 
       {/* Footer small text */}

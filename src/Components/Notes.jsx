@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Notes.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Searchbar";
 
 const NotesComponent = () => {
   const [notes, setNotes] = useState(() => {
@@ -61,10 +61,10 @@ const NotesComponent = () => {
       <div className="notes-container">
         <div className="search-wrapper">
           <SearchBar
-          placeholder="Search notes..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+            placeholder="Search notes..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
 
         <div className="notes-list">

@@ -12,10 +12,14 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "material-symbols": "^0.36.2",
     "math.js": "^1.1.46",
     "mathjs": "^14.8.1",
+    "prop-types": "15.8.1",
     "react": "^19.1.1",
+    "react-datepicker": "^8.7.0",
     "react-dom": "^19.1.1",
+    "react-fns": "^1.4.0",
     "react-toastify": "^11.0.5"
   },
   "devDependencies": {

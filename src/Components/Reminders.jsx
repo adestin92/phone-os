@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import AddReminder from "./AddReminder";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Searchbar";
 import { toast } from "react-toastify";
 import "./Reminders.css";
+import SummaryBox from "./SummaryBox";
 
 const Reminders = () => {
   const [reminders, setReminders] = useState(() => {
@@ -12,22 +13,21 @@ const Reminders = () => {
 
   const [showAddScreen, setShowAddScreen] = useState(false);
   const [search, setSearch] = useState("");
-  const timersRef = useRef([]); // store active timeouts
+  const timersRef = useRef([]);
 
-  // Load reminders from localStorage on mount
+  // Load reminders
   useEffect(() => {
     const saved = localStorage.getItem("reminders");
     if (saved) setReminders(JSON.parse(saved));
   }, []);
 
-  // Persist reminders to localStorage on every update
+  // Persist to localStorage
   useEffect(() => {
     localStorage.setItem("reminders", JSON.stringify(reminders));
   }, [reminders]);
 
-  // Setup timers for due reminders
+  // Setup toast timers
   useEffect(() => {
-    // Clear previous timers
     timersRef.current.forEach(clearTimeout);
     timersRef.current = [];
 
@@ -37,7 +37,6 @@ const Reminders = () => {
         const delay = reminderDateTime - new Date();
 
         if (delay > 0) {
-          // Schedule toast
           const timer = setTimeout(() => {
             toast.info(`⏰ Reminder: ${reminder.title}`, {
               position: "top-right",
@@ -46,8 +45,8 @@ const Reminders = () => {
 
             setReminders((prev) =>
               prev.map((r) =>
-                r.id === reminder.id ? { ...r, notified: true } : r
-              )
+                r.id === reminder.id ? { ...r, notified: true } : r,
+              ),
             );
           }, delay);
 
@@ -56,29 +55,37 @@ const Reminders = () => {
       }
     });
 
-    // Cleanup
     return () => timersRef.current.forEach(clearTimeout);
   }, [reminders]);
 
-  // Add a new reminder
+  // Add reminder handler
   const handleAddReminder = (newReminder) => {
     setReminders((prev) => [...prev, newReminder]);
     setShowAddScreen(false);
-
     toast.success("Reminder added successfully!", {
       position: "top-right",
       autoClose: 3000,
     });
   };
 
+  // Handle entering Add Reminder screen
+  const handleShowAddScreen = () => {
+    setShowAddScreen(true);
+    // show add screen
+  };
+
+  const handleCancelAdd = () => {
+    setShowAddScreen(false);
+  };
+
   // Filter reminders
   const filteredReminders = reminders.filter(
     (r) =>
       r.title.toLowerCase().includes(search.toLowerCase()) ||
-      r.notes.toLowerCase().includes(search.toLowerCase())
+      r.notes.toLowerCase().includes(search.toLowerCase()),
   );
 
-  // Summary counts
+  // Summary
   const todayStr = new Date().toISOString().split("T")[0];
   const counts = {
     today: reminders.filter((r) => r.date === todayStr).length,
@@ -87,21 +94,19 @@ const Reminders = () => {
     flagged: reminders.filter((r) => r.flagged).length,
   };
 
-  // Toggle add screen
+  // Render Add Screen
   if (showAddScreen) {
     return (
-      <AddReminder
-        onCancel={() => setShowAddScreen(false)}
-        onSave={handleAddReminder}
-      />
+      <AddReminder onCancel={handleCancelAdd} onSave={handleAddReminder} />
     );
   }
 
+  // no custom header logic
+
   return (
     <div className="reminders-container">
-      {/*Header + Search */}
+      {/* Search */}
       <div className="reminders-header">
-        <h2>Reminders</h2>
         <SearchBar
           placeholder="Search reminders..."
           value={search}
@@ -111,83 +116,59 @@ const Reminders = () => {
 
       {/* Summary Boxes */}
       <div className="summary-grid">
-        <div className="summary-box">
-          <div>
-            <img
-              src="./Reminders_icon/calendar_day.png"
-              className="settings-icon"
-              alt="Today"
-            />
-            <p className="summary-title">Today</p>
-          </div>
-          <h3>{counts.today}</h3>
-        </div>
-
-        <div className="summary-box">
-          <div>
-            <img
-              src="./Reminders_icon/calendar.png"
-              className="settings-icon"
-              alt="Scheduled"
-            />
-            <p className="summary-title">Scheduled</p>
-          </div>
-          <h3>{counts.scheduled}</h3>
-        </div>
-
-        <div className="summary-box gray">
-          <div>
-            <img
-              src="./Reminders_icon/drawer.png"
-              className="settings-icon"
-              alt="All"
-            />
-            <p className="summary-title">All</p>
-          </div>
-          <h3>{counts.all}</h3>
-        </div>
-
-        <div className="summary-box red">
-          <div>
-            <img
-              src="./Reminders_icon/report.png"
-              className="settings-icon"
-              alt="Flagged"
-            />
-            <p className="summary-title">Flagged</p>
-          </div>
-          <h3>{counts.flagged}</h3>
-        </div>
+        <SummaryBox
+          icon="./Reminders_icon/calendar_day.png"
+          title="Today"
+          value={counts.today}
+        />
+        <SummaryBox
+          icon="./Reminders_icon/calendar.png"
+          title="Scheduled"
+          value={counts.scheduled}
+        />
+        <SummaryBox
+          icon="./Reminders_icon/drawer.png"
+          title="All"
+          value={counts.all}
+          className="gray"
+        />
+        <SummaryBox
+          icon="./Reminders_icon/report.png"
+          title="Flagged"
+          value={counts.flagged}
+          className="red"
+        />
       </div>
 
-      {/* Reminders List */}
+      {/* List */}
       <div className="reminder-list">
         {filteredReminders.length === 0 ? (
           <p className="no-reminders">No reminders yet.</p>
         ) : (
           filteredReminders.map((r) => (
             <div key={r.id} className="reminder-item">
-              <div className="reminder-info">
-                <h4>{r.title}</h4>
-                {r.notes && <p>{r.notes}</p>}
-                {r.date && (
-                  <span className="reminder-datetime">
-                    {r.date} {r.time && r.time}
-                  </span>
-                )}
-              </div>
+              <h4>{r.title}</h4>
+              {r.notes && <p>{r.notes}</p>}
+              {r.date && (
+                <span className="reminder-datetime">
+                  {r.date} {r.time && r.time}
+                </span>
+              )}
             </div>
           ))
         )}
       </div>
-
-      {/* Add Reminder Button */}
-      <button
-        className="add-reminder-btn"
-        onClick={() => setShowAddScreen(true)}
-      >
-        +
-      </button>
+      {/* Footer (always visible) */}
+      <div className="reminder-footer">
+        <button
+          className="add-reminder-btn"
+          onClick={handleShowAddScreen}
+          aria-label="Add reminder"
+        >
+          +
+        </button>
+        New Reminder
+      </div>
     </div>
   );
 };
